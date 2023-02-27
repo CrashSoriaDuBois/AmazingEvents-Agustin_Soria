@@ -1,0 +1,28 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--bs-dark-text);
+    color: var(--bs-body-bg);
+}
+
+.headerText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 100px;
+}
+
+.headerArrow {
+    height: 10rem;
+}
+.logo{
+    height: 50px;
+}
+.fondoTarjeta{
+    height: 5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+* {}
