@@ -1,36 +1,109 @@
-.header {
-    display: flex;
-    justify-content: space-between;
-    background-color: var(--bs-dark-text);
-    color: var(--bs-body-bg);
+* {
+    border: 0px solid red;
+    font-family: 'Times New Roman', Times, serif;
+}
+a{
+    color: none;
+    text-decoration: none;
 }
 
-.headerText {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 100px;
+/* BACKGROUNDS COLORS */
+body {
+    background-color: #344360;
 }
 
-.headerArrow {
-    height: 10rem;
+body>header {
+    background-color: #e1dbc4;
+    color: #6e6b60;
 }
 
+.mainHeader {
+    background-color: #f2edda;
+    color: #222633;
+}
+
+body>footer {
+    background-color: #222633;
+}
+
+/* NAV______________________________ */
 .logo {
     height: 30px;
 }
 
-.fondoTarjeta {
-    height: 5rem;
+li, .navUl>a {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    flex: auto;
+    justify-content: center;
+}
+
+.navUl {
+    background-color: #ffffff22;
+    border-radius: 0.5rem;
+}
+
+@media (min-width: 768px) {
+    .navUl {
+        flex: auto;
+    }
+}
+
+@media (min-width: 1080px) {
+    .navSpan {
+        flex: 1;
+    }
+}
+.navegacion-link{
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    cursor: pointer;
+    color: #c4c7cf;
+    text-decoration: none;
+}
+
+.navegacion-link.activo{
+    background-color: #f33f31;
+    color: #fff;
+    animation: crescendo2 1.5s alternate infinite ease-in;
+}
+
+/* HEADER_______________________ */
+body>header {
+    border-top: 10px solid #2427377f;
+    font-size:xx-large;
+    font-style: italic;
+}
+
+.headerArrow {
+    height: 10rem;
+    filter: invert(46%) sepia(1%) saturate(3266%) hue-rotate(337deg) brightness(86%) contrast(93%);
+}
+
+.rotateArrow {
+    transform: rotate(180deg);
+}
+
+
+/* MAIN_________________________ */
+.categoryHead {
+    padding: 8px;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+    color: #6e6b60;
 }
 
 .card-img-top {
     width: 100%;
     height: 15rem;
     object-fit: cover;
+    border-radius: 1rem;
+}
+.card-img-top-details {
+    object-fit: cover;
+    border-radius: 1rem;
 }
 
 .messageBox {
@@ -39,19 +112,136 @@
     font-size: 14pt;
 }
 
+fieldset>* {
+    margin: 0.08rem;
+}
+
+input{
+color: #c4c7cf;
+background-color: #ffffff2c;
+border-radius: 0.5rem;
+}
+
+.cardColor {
+    background-color: #31364a;
+    border-radius: 1rem;
+}
+
+.tarjetasMain {
+    margin: 1rem;
+}
+
+.cardTitle {
+    color: #f33f31;
+}
+
+.cardText, label {
+    color: #c4c7cf;
+}
+
+.cardPrice {
+    color: #c4c7cf;
+}
+
+.cardButton {
+    color: #c4c7cf;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: #ffffff22;
+}
+
+.fondoTarjeta {
+    height: 5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.negate{
+    background-color: #ffffff00;
+    padding: 0;
+}
+
 td,
 th {
-    border: 1px solid #282727;
+    background-color:#ffffff00;
+    border: 2px dashed #ffffff70;
+    color: #c4c7cf;
     text-align: left;
     padding: 8px;
 }
 
 tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: #344360;
 }
 
-* {}
-
-fieldset>* {
-    margin: 0.08rem;
+.cardInfoText{
+    margin: 0;
+    padding: 0;
 }
+/* FOOTER */
+ .textFooter{
+    padding: 8px;
+    color: #ffffff9c;
+    font-size: .9444444444em;
+    transition: opacity .25s;
+ }
+.social>*{
+    padding: 9vw;
+    font-size: 1rem;
+    transform: scale(1.5);
+    filter: invert(97%) sepia(2%) saturate(74%) hue-rotate(304deg) brightness(300%) contrast(40%);
+}
+/* ANIMATION _______________________________*/
+
+.navegacion-link,
+.cardButton {
+    overflow: hidden;
+    transform: translate(0);
+}
+
+.navegacion-link:before,
+.cardButton:before {
+    content: '';
+    position: absolute;
+    transition: .6s ease-in-out;
+    height: 100%;
+    background: #fff;
+    top: 0%;
+    left: -115vw;
+    width: 106vw;
+    height: 100%;
+    transform: skew(-50deg, 0deg);
+
+}
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 1080px) {
+
+}
+
+.navegacion-link:hover:before,
+.cardButton:hover:before {
+    left: -10vw;
+    z-index: -1;
+}
+
+.navegacion-link:hover,
+.cardButton:hover {
+    color: #344360;
+    animation: crescendo 1.5s alternate infinite ease-in;
+}
+@keyframes crescendo {
+    0%   {transform: scale(1);}
+    80% {transform: scale(0.95);}
+    100% {transform: scale(0.9);}
+  }
+@keyframes crescendo2 {
+    0%   {transform: scale(1);}
+    90% {transform: scale(0.95);}
+    100% {transform: scale(0.94);}
+  }
