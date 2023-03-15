@@ -2,6 +2,12 @@
     border: 0px solid red;
     font-family: 'Times New Roman', Times, serif;
 }
+.img{
+    height: 100%;
+    max-width: 80%;
+    object-fit: cover;
+    border-radius: 1rem;
+}
 a{
     color: none;
     text-decoration: none;
