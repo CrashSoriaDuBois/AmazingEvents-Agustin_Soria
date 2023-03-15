@@ -130,8 +130,20 @@ border-radius: 0.5rem;
 .tarjetasMain {
     margin: 1rem;
 }
+<<<<<<< Updated upstream
 
 .cardTitle {
+=======
+.cardColor3 {
+    background-color: #f2edda;
+}
+/* Tarjetas Parte Superior */
+.cardColor> * > h2 {
+    color: #f33e31cc;
+}
+/* Titulo */
+.cardColor1> * > h5 {
+>>>>>>> Stashed changes
     color: #f33f31;
 }
 
@@ -189,7 +201,8 @@ tr:nth-child(even) {
     transition: opacity .25s;
  }
 .social>*{
-    padding: 9vw;
+    padding: 0;
+    margin: 7vw;
     font-size: 1rem;
     transform: scale(1.5);
     filter: invert(97%) sepia(2%) saturate(74%) hue-rotate(304deg) brightness(300%) contrast(40%);
