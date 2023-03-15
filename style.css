@@ -116,49 +116,106 @@ fieldset>* {
     margin: 0.08rem;
 }
 
+label {
+    color: #c4c7cf;
+}
+
 input{
 color: #c4c7cf;
 background-color: #ffffff2c;
 border-radius: 0.5rem;
 }
-
-.cardColor {
-    background-color: #31364a;
+/* Tarjetas */
+.tarjetasMain{
+    margin: 1rem;
     border-radius: 1rem;
 }
-
-.tarjetasMain {
-    margin: 1rem;
+.card{
+    border-radius: 1rem;
 }
-
-.cardTitle {
+.cardColor1 {
+    background-color: #31364a;
+}
+.cardColor2 {
+    background-color: #c4c7cf;
+}
+.cardColor3 {
+    background-color: #f2edda;
+}
+/* Tarjetas Parte Superior */
+/* Titulo */
+.cardColor1> * > h5 {
     color: #f33f31;
 }
-
-.cardText, label {
+.cardColor2> * > h5 {
+    color: #31364a;
+}
+.cardColor3> * > h5 {
+    color: #6e6b60;
+}
+/* Texto */
+.cardColor1> * > p {
     color: #c4c7cf;
 }
-
-.cardPrice {
-    color: #c4c7cf;
+.cardColor2> * > p {
+    color: #31364a;
 }
-
-.cardButton {
-    color: #c4c7cf;
-    text-decoration: none;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    background-color: #ffffff22;
+.cardColor3> * > p {
+    color: #6e6b60;
 }
-
+/* Parte inferior de Tarjeta */
 .fondoTarjeta {
     height: 5rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
+/* precio */
+.cardColor1> * > .fondoTarjeta > p {
+    color: #c4c7cf;
+}
+.cardColor2> * > .fondoTarjeta > p {
+    color: #31364a;
+}
+.cardColor3> * > .fondoTarjeta > p {
+    color: #f33e31bf;
+}
+/* boton */
+.cardColor1> * > .fondoTarjeta > a {
+    color: #c4c7cf;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: #ffffff22;
+}
+.cardColor2> * > .fondoTarjeta > a {
+    color: #31364a;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: #ffffff4a;
+}
+.cardColor3> * > .fondoTarjeta > a {
+    color: #f33e31bf;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border: 0.1rem solid #f33e31bf;
+    border-radius: 1rem;
+}
+.cardColor4> * > .fondoTarjeta > a {
+    color: #0D6EFD;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border: 0.1rem solid #0D6EFD;
+    border-radius: 1rem;
+}
+/*  */
 .negate{
     background-color: #ffffff00;
     padding: 0;
@@ -186,7 +243,6 @@ tr:nth-child(even) {
     padding: 8px;
     color: #ffffff9c;
     font-size: .9444444444em;
-    transition: opacity .25s;
  }
 .social>*{
     padding: 9vw;
@@ -200,6 +256,7 @@ tr:nth-child(even) {
 .cardButton {
     overflow: hidden;
     transform: translate(0);
+    
 }
 
 .navegacion-link:before,
