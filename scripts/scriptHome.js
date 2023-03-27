@@ -5,11 +5,20 @@ const textInput = document.querySelector('.textInput')
 textInput.addEventListener('input',filtroFinal)
 ulCheckContainer.addEventListener('change',filtroFinal)
 
-createCards(data.events)
-createCheckmarks(data.events)
+let arrayActividades
+//fetch('data.json')
+fetch("https://mindhub-xj03.onrender.com/api/amazing")
+.then((response) => response.json())
+.then(actividades => {
+
+    arrayActividades = actividades
+    createCards(actividades.events)
+    createCheckmarks(actividades.events)
+
+})
 
 function filtroFinal(){
-    let filtro1 = textFilter(data.events,textInput.value)
+    let filtro1 = textFilter(arrayActividades.events,textInput.value)
     let filtro2 = categoryFilter(filtro1)
     createCards(filtro2)
 }
@@ -36,7 +45,6 @@ function categoryFilter(array){
 
 function createCheckmarks(array){
     let arrayCategory = array.map(elemento => elemento.category)
-    console.log(arrayCategory)
     let setCategory = new Set(arrayCategory.sort((a,b)=>{
         if(a<b){
             return -1

@@ -13,6 +13,7 @@
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
     <link rel="stylesheet" href="style.css">
+    <script src="/scripts/stats.js" defer></script>
 </head>
 
 <body>
@@ -40,53 +41,55 @@
 
     </header>
     <main>
-        <div class="container py-3">
-            <table class="cardColor row row-cols-1 mb-3 text-center tabla">
-                <tbody>
-                    <tr>
-                        <th colspan="3" scope="rowgroup">Events Statics</th>
-                    </tr>
-                    <tr>
-                        <td>Events with higest percentage of attendance</td>
-                        <td>Events with lowest percentage of attendance</td>
-                        <td>Event with larger capacity</td>
-                    </tr>
-                    <tr>
-                        <td>...</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    <tr>
-                        <th colspan="3" scope="rowgroup">Upcoming events statics by category</th>
-                    </tr>
-                    <tr>
-                        <td>categories</td>
-                        <td>reveues</td>
-                        <td>Percentage of attendance</td>
-                    </tr>
-                    <tr>
-                        <td>...</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    <tr>
-                        <th colspan="3" scope="rowgroup">Past Events static by category</th>
-                    </tr>
-                    <tr>
-                        <td>categories</td>
-                        <td>reveues</td>
-                        <td>Percentage of attendance</td>
-                    </tr>
-                    <tr>
-                        <td>...</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+        <div class="container d-flex align-items-center p-3">
+            <div class="container-table">
+              <table class="table caption-top table-bordered">
+                <caption class="border border-5 border-dark-subtle bg-danger-subtle ps-2">Events Statistics</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Events with the highest percentage of attendance</th>
+                    <th scope="col">Events with the lowest percentage of attendance</th>
+                    <th scope="col">Event with larger capacity</th>
+                  </tr>
+                </thead>
+                <tbody id="tabla1">
+                  <tr>
+                    <td>Metallica</td>
+                    <td>Jurassic Park</td>
+                    <td>15K NY</td>
+                  </tr>
                 </tbody>
-            </table>
-        </div>
+              </table>
+              <table class="table caption-top table-bordered">
+                <caption class="border border-5 border-dark-subtle bg-danger-subtle ps-2">Upcoming Events Statistics by
+                  Category
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Category</th>
+                    <th scope="col">Revenues</th>
+                    <th scope="col">Percentage of attendance</th>
+                  </tr>
+                </thead>
+                <tbody id="tabla2">
+                </tbody>
+              </table>
+              <table class="table caption-top table-bordered">
+                <caption class="border border-5 border-dark-subtle bg-danger-subtle ps-2">Past Events Statistics by
+                  Category
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Category</th>
+                    <th scope="col">Revenues</th>
+                    <th scope="col">Percentage of attendance</th>
+                  </tr>
+                </thead>
+                <tbody id="tabla3">
+                </tbody>
+              </table>
+            </div>
+          </div>
     </main>
     <footer>
         <div>

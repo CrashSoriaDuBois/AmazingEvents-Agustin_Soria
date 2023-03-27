@@ -1,45 +1,60 @@
-let upcomingEvents = []
+//fetch('data.json')
+fetch("https://mindhub-xj03.onrender.com/api/amazing")
+    .then((response) => response.json())
+    .then(actividades => {
+        textInput.addEventListener('input', filtroFinal)
+        ulCheckContainer.addEventListener('change', filtroFinal)
 
-let fecha = data.currentDate.split("-")
+        let upcomingEvents = []
 
-for (const iterator of data.events) {
-    let arrayFecha = iterator.date.split("-")
+        currentDate = new Date(actividades.currentDate);
 
-    if (arrayFecha[0] > fecha[0]) { upcomingEvents.push(iterator) }
-    else if (arrayFecha[0] == fecha[0]) {
-        if (arrayFecha[1] > fecha[1]) { upcomingEvents.push(iterator) }
-        else if (arrayFecha[1] == fecha[1]) {
-            if (arrayFecha[2] > fecha[2]) { upcomingEvents.push(iterator) }
+        let fecha = actividades.currentDate.split("-")
+
+        for (const iterator of actividades.events) {
+            let arrayFecha = iterator.date.split("-")
+
+            if (arrayFecha[0] > fecha[0]) { upcomingEvents.push(iterator) }
+            else if (arrayFecha[0] == fecha[0]) {
+                if (arrayFecha[1] > fecha[1]) { upcomingEvents.push(iterator) }
+                else if (arrayFecha[1] == fecha[1]) {
+                    if (arrayFecha[2] > fecha[2]) { upcomingEvents.push(iterator) }
+                }
+            }
         }
-    }
-}
+
+        createCards(upcomingEvents)
+        createCheckmarks(upcomingEvents)
+
+        function filtroFinal() {
+            let filtro1 = textFilter(upcomingEvents, textInput.value)
+            let filtro2 = categoryFilter(filtro1)
+            createCards(filtro2)
+        }
+    })
+
+
+//let upcomingEvents = arrayActividades.filter(filtrarFecha)
+
+
 
 const containerMain = document.querySelector('.tarjetasMain')
 const ulCheckContainer = document.querySelector('.ulCheckContainer')
 const textInput = document.querySelector('.textInput')
 
-textInput.addEventListener('input',filtroFinal)
-ulCheckContainer.addEventListener('change',filtroFinal)
 
-createCards(upcomingEvents)
-createCheckmarks(upcomingEvents)
 
-function filtroFinal(){
-    let filtro1 = textFilter(upcomingEvents,textInput.value)
-    let filtro2 = categoryFilter(filtro1)
-    createCards(filtro2)
-}
 
-function textFilter(array, texto){
+function textFilter(array, texto) {
     let arrayFiltrado = array.filter(elemento => elemento.name.toLowerCase().includes(texto.toLowerCase()))
     return arrayFiltrado
 }
-function categoryFilter(array){
+function categoryFilter(array) {
     let checkboxes = document.querySelectorAll("input[type='checkbox']")
     console.log(checkboxes)
     let arrayChecks = Array.from(checkboxes)
     let checksCheckeados = arrayChecks.filter(check => check.checked)
-    if(checksCheckeados.length == 0){
+    if (checksCheckeados.length == 0) {
         return array
     }
     /* console.log(checksCheckeados); */
@@ -50,23 +65,22 @@ function categoryFilter(array){
     return arrayFiltrado
 }
 
-function createCheckmarks(array){
+function createCheckmarks(array) {
     let arrayCategory = array.map(elemento => elemento.category)
-    console.log(arrayCategory)
-    let setCategory = new Set(arrayCategory.sort((a,b)=>{
-        if(a<b){
+    let setCategory = new Set(arrayCategory.sort((a, b) => {
+        if (a < b) {
             return -1
         }
-        if(a>b){
+        if (a > b) {
             return 1
         }
         return 0
     }))
 
     let checkMark = ''
-    setCategory.forEach(elemento =>{
-        checkMark += 
-        `<li> 
+    setCategory.forEach(elemento => {
+        checkMark +=
+            `<li> 
         <label class="categoryHead" for="${elemento}">
         <input class="form-check-input" type="checkbox" role="switch" id="${elemento}" value="${elemento}">
         ${elemento}</label>
@@ -86,7 +100,7 @@ function createCards(array) {
     array.forEach(element => {
         if (iTarjeta >= 5) { iTarjeta = 1 }
         cardsContent +=
-`<div>
+            `<div>
     <div class="card cardColor${iTarjeta}">
         <img src="${element.image}" class="card-img-top" alt="...">
         <div>

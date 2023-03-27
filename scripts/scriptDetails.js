@@ -1,38 +1,35 @@
-const queryString = location.search
-const params = new URLSearchParams(queryString)
-const id = params.get("id")
-const index = (parseInt(id) - 1)
-
-
-
+//fetch('data.json')
+fetch("https://mindhub-xj03.onrender.com/api/amazing")
+.then((response) => response.json())
+.then(actividades => {
 
 function randomNum() { return (Math.floor(Math.random() * 4) + 1) };
 
 const imagenTarjeta = document.querySelector('.imgTarjeta')
-imagenTarjeta.src = data.events[index].image
+imagenTarjeta.src = actividades.events[index].image
 
 const colorTarjeta = document.querySelector(".card")
 colorTarjeta.className = `card cardColor${randomNum()} d-flex flex-xl-row`
 
 const titulo = document.querySelector("h5")
-titulo.textContent = data.events[index].name
+titulo.textContent = actividades.events[index].name
 
 const contenedorTexto = document.querySelector(".card-body")
 
 let texto1 = document.createElement('p')
-texto1.textContent = `Date: ${data.events[index].date}`
+texto1.textContent = `Date: ${actividades.events[index].date}`
 let texto2 = document.createElement('p')
-texto2.textContent = `Description: ${data.events[index].description}`
+texto2.textContent = `Description: ${actividades.events[index].description}`
 let texto3 = document.createElement('p')
-texto3.textContent = `Category: ${data.events[index].category}`
+texto3.textContent = `Category: ${actividades.events[index].category}`
 let texto4 = document.createElement('p')
-texto4.textContent = `Place: ${data.events[index].place}`
+texto4.textContent = `Place: ${actividades.events[index].place}`
 let texto5 = document.createElement('p')
-texto5.textContent = `Capacity: ${data.events[index].capacity}`
+texto5.textContent = `Capacity: ${actividades.events[index].capacity}`
 let texto6 = document.createElement('p')
-texto6.textContent = `Assistance: ${data.events[index].assistance}`
+texto6.textContent = `Assistance: ${actividades.events[index].assistance}`
 let texto7 = document.createElement('p')
-texto7.textContent = `Price: $${data.events[index].price}`
+texto7.textContent = `Price: $${actividades.events[index].price}`
 
 contenedorTexto.appendChild(texto1)
 contenedorTexto.appendChild(texto2)
@@ -41,3 +38,10 @@ contenedorTexto.appendChild(texto4)
 contenedorTexto.appendChild(texto5)
 contenedorTexto.appendChild(texto6)
 contenedorTexto.appendChild(texto7)
+
+})
+
+const queryString = location.search
+const params = new URLSearchParams(queryString)
+const id = params.get("id")
+const index = (parseInt(id) - 1)

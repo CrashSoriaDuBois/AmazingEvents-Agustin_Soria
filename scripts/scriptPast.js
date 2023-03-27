@@ -1,34 +1,42 @@
-let pastEvents = []
+//fetch('data.json')
+fetch("https://mindhub-xj03.onrender.com/api/amazing")
+    .then((response) => response.json())
+    .then(actividades => {
+        textInput.addEventListener('input', filtroFinal)
+        ulCheckContainer.addEventListener('change', filtroFinal)
 
-let fecha = data.currentDate.split("-")
+        let pastEvents = []
 
-for (const iterator of data.events) {
-    let arrayFecha = iterator.date.split("-")
+        currentDate = new Date(actividades.currentDate);
 
-    if (arrayFecha[0] < fecha[0]) { pastEvents.push(iterator) }
-    else if (arrayFecha[0] == fecha[0]) {
-        if (arrayFecha[1] < fecha[1]) { pastEvents.push(iterator) }
-        else if (arrayFecha[1] == fecha[1]) {
-            if (arrayFecha[2] < fecha[2]) { pastEvents.push(iterator) }
+        let fecha = actividades.currentDate.split("-")
+
+        for (const iterator of actividades.events) {
+            let arrayFecha = iterator.date.split("-")
+
+            if (arrayFecha[0] < fecha[0]) { pastEvents.push(iterator) }
+            else if (arrayFecha[0] == fecha[0]) {
+                if (arrayFecha[1] < fecha[1]) { pastEvents.push(iterator) }
+                else if (arrayFecha[1] == fecha[1]) {
+                    if (arrayFecha[2] < fecha[2]) { pastEvents.push(iterator) }
+                }
+            }
         }
-    }
-}
+
+        createCards(pastEvents)
+        createCheckmarks(pastEvents)
+
+        function filtroFinal() {
+            let filtro1 = textFilter(pastEvents, textInput.value)
+            let filtro2 = categoryFilter(filtro1)
+            createCards(filtro2)
+        }
+    })
+
 
 const containerMain = document.querySelector('.tarjetasMain')
 const ulCheckContainer = document.querySelector('.ulCheckContainer')
 const textInput = document.querySelector('.textInput')
-
-textInput.addEventListener('input',filtroFinal)
-ulCheckContainer.addEventListener('change',filtroFinal)
-
-createCards(pastEvents)
-createCheckmarks(pastEvents)
-
-function filtroFinal(){
-    let filtro1 = textFilter(pastEvents,textInput.value)
-    let filtro2 = categoryFilter(filtro1)
-    createCards(filtro2)
-}
 
 function textFilter(array, texto){
     let arrayFiltrado = array.filter(elemento => elemento.name.toLowerCase().includes(texto.toLowerCase()))
@@ -52,7 +60,6 @@ function categoryFilter(array){
 
 function createCheckmarks(array){
     let arrayCategory = array.map(elemento => elemento.category)
-    console.log(arrayCategory)
     let setCategory = new Set(arrayCategory.sort((a,b)=>{
         if(a<b){
             return -1
